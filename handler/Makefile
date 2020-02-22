@@ -13,4 +13,3 @@ deploy:
 		--s3-bucket ${DEPLOYMENT_BUCKET} \
 		--stack-name ${STACK_NAME} \
 		--capabilities CAPABILITY_IAM
-		-t template.yaml
