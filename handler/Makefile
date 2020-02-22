@@ -10,8 +10,8 @@ clean:
 	rm -f tpl.yml
 
 package:
-	sam package --s3-bucket ${DEPLOYMENT_BUCKET} > tpl.yml
+	sam package --s3-bucket ${DEPLOYMENT_BUCKET} --debug --output-template-file tpl.yml
 
 deploy:  package
-	sam deploy --template-file tpl.yml --stack-name ${STACK_NAME} --capabilities CAPABILITY_IAM
+	sam deploy --template-file tpl.yml --stack-name ${STACK_NAME} --capabilities CAPABILITY_IAM --debug
 	rm -f tpl.yml
