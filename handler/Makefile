@@ -3,7 +3,7 @@
 STACK_NAME = reen-development
 
 build:
-	GOOS=darwin GOARCH=amd64 go build -o hello-world/hello-world ./hello-world
+	GOOS=linux GOARCH=amd64 go build -o hello-world/hello-world ./hello-world
 
 clean:
 	rm -rf ./hello-world/hello-world
