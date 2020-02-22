@@ -9,9 +9,6 @@ clean:
 	rm -rf ./hello-world/hello-world
 	rm -f tpl.yml
 
-package:
-	sam package --s3-bucket ${DEPLOYMENT_BUCKET} --debug --output-template-file tpl.yml
-
-deploy:  package
-	sam deploy --template-file tpl.yml --stack-name ${STACK_NAME} --capabilities CAPABILITY_IAM --debug
+deploy:
+	sam deploy --s3-bucket ${DEPLOYMENT_BUCKET} --stack-name ${STACK_NAME} --capabilities CAPABILITY_IAM -t template.yaml
 	rm -f tpl.yml
