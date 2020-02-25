@@ -28,6 +28,24 @@ Resources:
         Variables:
           BU: reen
 
+  StateMachine:
+    Type: AWS::StepFunctions::StateMachine
+    Properties:
+      StateMachineName: HelloWorldStateMachine
+      RoleArn: !GetAtt HelloWorldFunctionRole.Arn
+      DefinitionString: |
+        {
+          "StartAt": "StartState",
+          "States": {
+            "StartState": {
+              "Type": "Wait",
+              "Seconds": 10,
+              "End": true
+            }
+          }
+        }
+
+
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
   # Find out more about other implicit resources you can reference within SAM
